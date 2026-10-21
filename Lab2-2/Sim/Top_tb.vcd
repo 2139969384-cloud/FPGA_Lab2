@@ -1,0 +1,127 @@
+$date
+	Tue Oct 20 22:55:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module Top_tb $end
+$var wire 1 ! led3 $end
+$var wire 1 " led2 $end
+$var wire 1 # led1 $end
+$var wire 1 $ led0 $end
+$var reg 1 % sys_clk $end
+$var reg 1 & sys_rst_n $end
+$scope module dut $end
+$var wire 1 % sys_clk $end
+$var wire 1 & sys_rst_n $end
+$var wire 1 ! led3 $end
+$var wire 1 " led2 $end
+$var wire 1 # led1 $end
+$var wire 1 $ led0 $end
+$scope module u0 $end
+$var wire 1 % sys_clk $end
+$var wire 1 & sys_rst_n $end
+$var reg 25 ' cnt [24:0] $end
+$var reg 4 ( led_out [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx (
+bx '
+1&
+0%
+x$
+x#
+x"
+x!
+$end
+#10
+0$
+1!
+1"
+1#
+b1110 (
+b0 '
+0&
+1%
+#20
+1&
+0%
+#30
+b1 '
+1%
+#40
+0%
+#50
+b10 '
+1%
+#60
+0%
+#70
+b11 '
+1%
+#80
+0%
+#90
+b100 '
+1%
+#100
+0%
+#110
+b101 '
+1%
+#120
+0%
+#130
+b110 '
+1%
+#140
+0%
+#150
+b111 '
+1%
+#160
+0%
+#170
+b1000 '
+1%
+#180
+0%
+#190
+b1001 '
+1%
+#200
+0%
+#210
+b1010 '
+1%
+#220
+0%
+#230
+b1011 '
+1%
+#240
+0%
+#250
+b1100 '
+1%
+#260
+0%
+#270
+b0 '
+1%
+0&
+#280
+0%
+1&
+#290
+b1 '
+1%
+#300
+0%

@@ -1,0 +1,1047 @@
+
+========== 2026-10-20 19:15:07.166120 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/Project/Lab2-2/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Tip: The obj_dir folder does not exist, no need to clean it up
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/Project/Lab2-2/RTL/Running_Light.v:20:17: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SHIFTR generates 8 bits.
+                                                                              : ... In instance DevelopmentBoard.Top_inst.u0
+   20 |         led_out <= {led_out,led_out}>>1'b1;
+      |                 ^~
+                /media/sf_ShareFolder/Project/Lab2-2/RTL/Top.v:17:1: ... note: In file included from Top.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: 进入目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: 离开目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 5 events this frame (processed 1/6)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 3 | Dropped: 7 | MaxEvents/Frame: 6 | MaxFrameTime: 9ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 20 | Dropped: 20 | MaxEvents/Frame: 3 | MaxFrameTime: 10ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 2 | Dropped: 2 | MaxEvents/Frame: 2 | MaxFrameTime: 11ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 29 | Dropped: 24 | MaxEvents/Frame: 3 | MaxFrameTime: 11ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 8 | Dropped: 7 | MaxEvents/Frame: 3 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 6ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 22 | Dropped: 27 | MaxEvents/Frame: 4 | MaxFrameTime: 8ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 23 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 11ms
+[EventLoop] FPS: 60 | Events: 7 | Dropped: 0 | MaxEvents/Frame: 1 | MaxFrameTime: 12ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 18 | Dropped: 20 | MaxEvents/Frame: 3 | MaxFrameTime: 8ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 60 | Events: 6 | Dropped: 6 | MaxEvents/Frame: 3 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 23ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 19 | Dropped: 17 | MaxEvents/Frame: 4 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 7ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 25 | Dropped: 4 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 3 | Dropped: 4 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 8ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 11 | Dropped: 10 | MaxEvents/Frame: 3 | MaxFrameTime: 18ms
+[Input] Quit key pressed
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+
+========== EventLoop Final Stats ==========
+Total frames processed: 6
+Total events processed: 1
+Total events dropped:   1
+Max events in one frame: 2
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 45s
+Total iterations:    150253983
+Iterations/second:   3338977
+Final time stamp:    601015952
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-10-20 22:09:00.397268 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/Project/Lab2-2/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/Project/Lab2-2/RTL/Running_Light.v:20:17: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SHIFTR generates 8 bits.
+                                                                              : ... In instance DevelopmentBoard.Top_inst.u0
+   20 |         led_out <= {led_out,led_out}>>1'b1;
+      |                 ^~
+                /media/sf_ShareFolder/Project/Lab2-2/RTL/Top.v:15:1: ... note: In file included from Top.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: 进入目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: 离开目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 10 | Dropped: 12 | MaxEvents/Frame: 5 | MaxFrameTime: 19ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 13 | Dropped: 9 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 27ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[EventLoop] Slow frame: 27ms (target: 16ms)
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 27ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 3 | Dropped: 4 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 57 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 22ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] Slow frame: 35ms (target: 16ms)
+[EventLoop] FPS: 57 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 35ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 23ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 4 | Dropped: 6 | MaxEvents/Frame: 3 | MaxFrameTime: 8ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 11 | Dropped: 11 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 34 | Dropped: 33 | MaxEvents/Frame: 4 | MaxFrameTime: 11ms
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 8 | Dropped: 11 | MaxEvents/Frame: 4 | MaxFrameTime: 11ms
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 18 | Dropped: 16 | MaxEvents/Frame: 4 | MaxFrameTime: 9ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 8 | Dropped: 4 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 18 | Dropped: 7 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 5 | Dropped: 0 | MaxEvents/Frame: 1 | MaxFrameTime: 9ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 3 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 18ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 6 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 6 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 58 | Events: 13 | Dropped: 12 | MaxEvents/Frame: 4 | MaxFrameTime: 16ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 57 | Events: 4 | Dropped: 6 | MaxEvents/Frame: 3 | MaxFrameTime: 19ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 9 | Dropped: 12 | MaxEvents/Frame: 5 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[EventLoop] FPS: 57 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 7ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 58 | Events: 30 | Dropped: 32 | MaxEvents/Frame: 3 | MaxFrameTime: 11ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 8 | Dropped: 13 | MaxEvents/Frame: 4 | MaxFrameTime: 16ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 15 | Dropped: 14 | MaxEvents/Frame: 3 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Slow frame: 28ms (target: 16ms)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 58 | Events: 28 | Dropped: 18 | MaxEvents/Frame: 5 | MaxFrameTime: 28ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 22 | Dropped: 30 | MaxEvents/Frame: 4 | MaxFrameTime: 10ms
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 14ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 27 | Dropped: 38 | MaxEvents/Frame: 4 | MaxFrameTime: 13ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Quit key pressed
+
+========== EventLoop Final Stats ==========
+Total frames processed: 46
+Total events processed: 2
+Total events dropped:   1
+Max events in one frame: 2
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 63s
+Total iterations:    156411904
+Iterations/second:   2482728
+Final time stamp:    625647636
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-10-21 10:36:12.092603 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/Project/Lab2-2/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/Project/Lab2-2/RTL/Running_Light.v:20:17: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SHIFTR generates 8 bits.
+                                                                              : ... In instance DevelopmentBoard.Top_inst.u0
+   20 |         led_out <= {led_out,led_out}>>1'b1;
+      |                 ^~
+                /media/sf_ShareFolder/Project/Lab2-2/RTL/Top.v:15:1: ... note: In file included from Top.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: 进入目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+make: 警告：文件“VDevelopmentBoard__ver.d”的修改时间在未来 1.3 秒后
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: 警告：检测到时钟错误。您的构建版本可能是不完整的。
+make: 离开目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 6 events this frame (processed 1/7)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 57 | Events: 2 | Dropped: 9 | MaxEvents/Frame: 7 | MaxFrameTime: 17ms
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 14 | Dropped: 13 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 58 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 21ms
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 1 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 13ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 60 | Events: 17 | Dropped: 22 | MaxEvents/Frame: 4 | MaxFrameTime: 9ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 59 | Events: 11 | Dropped: 10 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] FPS: 57 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 1 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 16ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 11 | Dropped: 11 | MaxEvents/Frame: 4 | MaxFrameTime: 11ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Quit key pressed
+
+========== EventLoop Final Stats ==========
+Total frames processed: 38
+Total events processed: 14
+Total events dropped:   11
+Max events in one frame: 3
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 13s
+Total iterations:    40871936
+Iterations/second:   3143995
+Final time stamp:    163487764
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-10-21 11:16:06.740734 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/Project/Lab2-2/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/Project/Lab2-2/RTL/Running_Light.v:20:17: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SHIFTR generates 8 bits.
+                                                                              : ... In instance DevelopmentBoard.Top_inst.u0
+   20 |         led_out <= {led_out,led_out}>>1'b1;
+      |                 ^~
+                /media/sf_ShareFolder/Project/Lab2-2/RTL/Top.v:15:1: ... note: In file included from Top.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: 进入目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: 离开目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[SimThread] Starting simulation loop...
+[EventLoop] FPS: 59 | Events: 3 | Dropped: 3 | MaxEvents/Frame: 4 | MaxFrameTime: 18ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 10 | Dropped: 10 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 60 | Events: 12 | Dropped: 11 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 17ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 21ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 17ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 15ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 24ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 58 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS:
+59 | Events: 2 | Dropped: 3 | MaxEvents/Frame: 3 | MaxFrameTime: 17ms
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 22ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 11 | Dropped: 12 | MaxEvents/Frame: 3 | MaxFrameTime: 9ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 16ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 7ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 21ms
+[EventLoop] FPS:
+58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS:
+59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 16ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] FPS:
+58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS:
+59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS:
+59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] FPS:
+59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 16ms
+[EventLoop] FPS: 58 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 13ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 21ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 11ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 9ms
+[EventLoop] Slow frame: 24ms (target: 16ms)
+[EventLoop] Slow frame: 22ms (target: 16ms)
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 24ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS:
+59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 17ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS:
+59 | Events: 1 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 11ms
+[Input] Quit key pressed
+
+========== EventLoop Final Stats ==========
+Total frames processed: 17
+Total events processed: 1
+Total events dropped:   0
+Max events in one frame: 1
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 79s
+Total iterations:    687995596
+Iterations/second:   8708805
+Final time stamp:    2751982404
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
+
+========== 2026-10-21 11:27:44.811996 ==========
+Detected OS: Linux
+Found SDL2: sdl2-config
+SDL CFLAGS: -I/usr/include/SDL2 -D_REENTRANT
+SDL LIBS: -lSDL2
+Start simulation...
+Include directories used: /media/sf_ShareFolder/Project/Lab2-2/RTL
+---------------------------------
+Step 0: Clean up previously generated files...
+Remove obj_dir ...
+✓ Sucessfully remove obj_dir 
+---------------------------------
+Step 1: Run Verilator Compiler...
+%Warning-WIDTH: /media/sf_ShareFolder/Project/Lab2-2/RTL/Running_Light.v:20:17: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SHIFTR generates 8 bits.
+                                                                              : ... In instance DevelopmentBoard.Top_inst.u0
+   20 |         led_out <= {led_out,led_out}>>1'b1;
+      |                 ^~
+                /media/sf_ShareFolder/Project/Lab2-2/RTL/Top.v:15:1: ... note: In file included from Top.v
+                DevelopmentBoard.v:22:1: ... note: In file included from DevelopmentBoard.v
+                ... Use "/* verilator lint_off WIDTH */" and lint_on around source to disable this message.
+✓ Verilator compilation completed successfully!
+---------------------------------
+Step 2: Build the simulation executable...
+make: 进入目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o simulator.o ../simulator.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o verilated.o /usr/share/verilator/include/verilated.cpp
+/usr/bin/perl /usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include VDevelopmentBoard.cpp VDevelopmentBoard__Slow.cpp VDevelopmentBoard__Syms.cpp > VDevelopmentBoard__ALL.cpp
+g++ -I/usr/include/SDL2 -D_REENTRANT -I.  -MMD -I/usr/share/verilator/include -I/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TRACE=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-sign-compare -Wno-uninitialized -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable -Wno-shadow     -I/usr/include/SDL2 -D_REENTRANT  -Os -c -o VDevelopmentBoard__ALL.o VDevelopmentBoard__ALL.cpp
+ar -cr VDevelopmentBoard__ALL.a VDevelopmentBoard__ALL.o
+ranlib VDevelopmentBoard__ALL.a
+../simulator.cpp: In function ‘void render_sdl()’:
+../simulator.cpp:305:34: warning: narrowing conversion of ‘(49 + i)’ from ‘int’ to ‘char’ [-Wnarrowing]
+  305 |         char digit_str[2] = {'1' + i, '\0'};
+      |                              ~~~~^~~
+g++    simulator.o verilated.o VDevelopmentBoard__ALL.a   -lSDL2    -o VDevelopmentBoard
+make: 离开目录“/media/sf_ShareFolder/Project/Lab2-2/RTL/sim/obj_dir”
+✓ Simulation executable file built successfully!
+---------------------------------
+Step 3: Start the simulation...
+----------------------------------------
+Window surface size: 800x850
+[SimThread] Starting simulation loop...
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] Slow frame: 39ms (target: 16ms)
+[EventLoop] Slow frame: 45ms (target: 16ms)
+[EventLoop] Dropped 4 events this frame (processed 1/5)
+[EventLoop] FPS: 57 | Events: 3 | Dropped: 8 | MaxEvents/Frame: 5 | MaxFrameTime: 45ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 60 | Events: 14 | Dropped: 18 | MaxEvents/Frame: 4 | MaxFrameTime: 17ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 60 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 12ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 23ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 17ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 10ms
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 60 | Events: 1 | Dropped: 1 | MaxEvents/Frame:
+2 | MaxFrameTime: 15ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 20ms
+[EventLoop] Slow frame: 23ms (target: 16ms)
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 23ms
+[Input] Button 'B2' pressed
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] FPS: 60 | Events: 1 | Dropped: 2 | MaxEvents/Frame: 3 | MaxFrameTime: 19ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 18ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 12ms
+[EventLoop] FPS: 60 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 15ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 21ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 14ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 8ms
+[Input] Button 'B2' released
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 1 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 16ms
+[EventLoop] FPS: 59 | Events: 0 | Dropped: 0 | MaxEvents/Frame: 0 | MaxFrameTime: 19ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 2 events this frame (processed 1/3)
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] Dropped 3 events this frame (processed 1/4)
+[EventLoop] FPS: 59 | Events: 32 | Dropped: 26 | MaxEvents/Frame: 4 | MaxFrameTime: 19ms
+[EventLoop] Dropped 1 events this frame (processed 1/2)
+[EventLoop] FPS: 59 | Events: 1 | Dropped: 1 | MaxEvents/Frame: 2 | MaxFrameTime: 16ms
+[Input] Quit key pressed
+
+========== EventLoop Final Stats ==========
+Total frames processed: 4
+Total events processed: 1
+Total events dropped:   0
+Max events in one frame: 1
+===========================================
+
+========== Simulation Thread Stats ==========
+Simulation duration: 24s
+Total iterations:    213264100
+Iterations/second:   8886004
+Final time stamp:    853056420
+=============================================
+[SimThread] Simulation loop ended
+----------------------------------------
+✓ Simulation execution completed!
